@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>  
+    div.padded {  
+      padding-top: 0px;  
+      padding-right: 100px;  
+      padding-bottom: 0.25in;  
+      padding-left: 100px;  
+    }  
+  </style> 
+<title>Justin Shao, Jierui Xu, Tinna Liu, Yiwei Zhou | CS 184</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body>
+<br />
+<h1 align="middle">CS 184 Final Project - Fluid and collision simulation</h1>
+    <h2 align="middle">Justin Shao, Jierui Xu, Tinna Liu, Yiwei Zhou</h2>
+
+    <div class="padded">
+
+        
+        <h2 align="middle">Summary</h2>
+        <p>
+            <ul>
+                <li>
+                    In this project, we try to simulate fluid, with water as a baseline, and then simulate some other types of fluids. As a stretch goal, we will simulate the effect of different objects falling into the fluid.                </li>
+            </ul>
+        </p>
+
+        <br>
+
+        <h3 align="middle">Problem Description</h3>
+        <p>
+            <ul>
+                    <li>
+                        In this project, we will try to simulate fluids and their collision with objects. We will first simulate water and other types of fluids in a container, and then as a stretch goal, we will simulate objects falling into the fluid as well as the splashing effects that happen in regards to the collision. This problem is important because it not only represents fluid simulation, but it also allows us to learn solid-liquid interactions, and possibly how this interaction is affected by the different physical characteristics of the objects. The challenging part for our base goal is to perform fluid simulation (i.e. track water particles’ movement inside the container). Then, we will need to figure out how to present other types of fluids, and finally the most challenging part would be to model the interactions between solid and liquid (i.e. how the ball might sink into then float on top of the fluid). To solve these problems, we will utilize some sample code on fluid simulation from lectures and from past papers, and we will reference some physics documentation for fluid properties and for object collisions.
+                    </li>
+            </ul>
+        </p>
+        
+        <br>
+
+        <h3 align="middle">Goals and Deliverables</h3>
+        <p>
+            <ul>
+                <li>Goals:</li>
+                <ul>
+                <li>Goal 1: Create realistic simulation of fluid, focusing on water.
+                    <ul>
+                        <li>The algorithm will be based on Robert Bridson's "Fluid Simulation for Computer Graphics" textbook.</li>
+                        <li>Define key physical properties of fluids</li>
+                        <ul>
+                            <li>Incompressibility</li>
+                            <li>Collision Detection and Response</li>
+                            <li>Vorticity</li>
+                            <li>Viscosity</li> 
+                        </ul>
+                    </ul>   
+                </li>
+                <li>Goal 2: Extend water simulation into different kinds of fluid, especially those with high viscosity  
+                    <ul>
+                        <li>Key focus: water, oil, and mercury.</li>
+                        <ul>
+                            <li>When viscosity becomes large, new physical properties need to be considered to realistically render fluids.</li>
+                        </ul>
+                        <li>Define key physical properties of fluids</li>
+                    </ul>   
+                </li>
+                <li>
+                    Goal 3: Smash ball objects with different weights into calm fluid in a cube 
+                    <ul>
+                        <li>Simulate smashing and collision effect.</li>
+                        <li>Add floating, submerging, and sinking effect.</li>
+                        <li>Simulate objects with different materials, such as plastic balls, lead balls, and wooden balls.</li>
+                    </ul>
+                </li>
+            </ul>
+                <li>Deliverables</li>
+                    <ul>
+                        <li>In the base case, we will achieve a successful simulation of dynamic water in a cube, which is similar to previous students’ projects. We will be able to present a video about a bunny-shape water falling down and its consequential fluid dynamics. </li>
+                        <li>In the best case, we hope to achieve realistic simulation of both water and oil. If we still have time beyond that, we will try to simulate the physical crashing effect between an object falling on to a flat water surface. </li>
+                    </ul>
+                <li>Quality / Performance of the system</li>
+                <ul>
+                    <li>One metric we will use for estimating efficiency is the ratio between the number of calculations vs the number of particles used in the underlying model.</li>
+                    <li>We plan to render a handful of scenes with simple setups (e.g. dropping a cube of water) that allows us to gauge at how realistic our simulation is.</li>
+                    </ul>
+                <li>Questions we plan to answer with our analysis</li>
+                <ul>
+                    <li>How do water particles move within the liquid?                    </li>
+                    <li>How do water particles behave after collision with a boundary (i.e. edge of the container)?</li>
+                    <li>Which properties of fluids do we need to change in order to simulate different types of fluids?</li>
+                    </ul>
+                </ul>
+                
+                
+        </p>
+        <br>
+        
+        
+        
+
+        <h3 align="middle">Schedule</h3>
+        <p>
+            <ul>
+                    <li>First two weeks:</li>
+                        <ul>
+                            <li>Week 1: Start by implementing the physical trait characteristic of the fluid particle. As a result of this week, we will have fluid-like particles.</li>
+                            <li>Week 2: Set up the global lighting of the scene, like the reflection on the fluid surface, the container, etc.</li>
+                        </ul>
+                    <li>Last two weeks:</li>
+                    <ul>
+                        <li>Week 3: Modify the fluid to demonstrate different kinds of fluids like oil, water, and mercury.</li>
+                        <li>Week 4: Start working on other objects that can react with the fluid, and simulate the effect of those objects' collision with the fluid. For example, billiard balls and ping-pong balls.</li>
+                    </ul>
+            </ul>
+        </p>
+        <br>
+
+
+
+        <h3 align="middle">Resources</h3>
+        <p>
+            <ul>
+                    <li>Robert Bridson's "Fluid Simulation for Computer Graphics" textbook</li>
+                    <li>Losada, Jaime & Anderson, Eike & Fryazinov, Oleg. (2015). Real-Time Fluids – Optimizing Grid-Based Methods.</li>
+                    <li>Stam, Jos. (2003). Real-Time Fluid Dynamics for Games.</li>
+                    <li>Stam, Jos. (2001). Stable Fluids. ACM SIGGRAPH 99. 1999. 10.1145/311535.311548.</li>
+                    <li>GPU Gems, Chapter 38. Fast Fluid Dynamics Simulation on the GPU</li>
+                    <li>Shahriar Shahrabi, Gentle Introduction to Realtime Fluid Simulation for Programmers and Technical Artists, Medium</li>
+            </ul>
+        </p>
+        <br>
